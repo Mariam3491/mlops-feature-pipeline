@@ -1,14 +1,12 @@
 # baseline_model.py
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
-from sklearn.metrics import classification_report, roc_auc_score, precision_recall_curve
 import joblib
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, roc_auc_score
+from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
 
 # Load cleaned data
 df = pd.read_csv('dataset/cleaned_creditcard.csv')
@@ -51,7 +49,7 @@ for name, model in models.items():
     # Save best model
     if name == 'XGBoost':  # Assuming XGBoost performs best
         joblib.dump(model, 'models/baseline_model.pkl')
-        print(f"✅ Baseline model saved to models/baseline_model.pkl")
+        print("✅ Baseline model saved to models/baseline_model.pkl")
 
 # Feature importance for best model
 best_model = models['XGBoost']

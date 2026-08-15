@@ -4,7 +4,7 @@ Tests card and merchant rolling feature calculations.
 """
 
 import pandas as pd
-import pytest
+
 from src.features.transformations import (
     add_card_features,
     add_merchant_features,
@@ -236,7 +236,6 @@ def test_no_point_in_time_leakage():
 def test_project_setup():
     """Test that the project is properly set up."""
     import os
-    import sys
     
     # Verify we're in the right directory structure
     assert os.path.exists("src/features/transformations.py"), "Source directory not found"
